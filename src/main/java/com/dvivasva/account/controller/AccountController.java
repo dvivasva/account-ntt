@@ -41,9 +41,5 @@ private final AccountService accountService;
 	}
 
 
-	/*@GetMapping("/listByCustomer/{id}")
-	public Flux<AccountDto> getAccountsByCustomerId(@PathVariable("id") String id){
-		return accountService.findAllAccountsByCustomerId(id);
-	}*/
 
 }

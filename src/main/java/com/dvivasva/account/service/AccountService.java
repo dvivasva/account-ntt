@@ -3,9 +3,7 @@ package com.dvivasva.account.service;
 import com.dvivasva.account.dto.AccountDto;
 import com.dvivasva.account.repository.AccountRepository;
 import com.dvivasva.account.utils.AccountUtil;
-import com.dvivasva.account.webclient.CardWebClient;
 import com.dvivasva.account.webclient.CustomerWebClient;
-import com.dvivasva.account.webclient.dto.CardDto;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,25 +62,6 @@ public class AccountService {
 		return accountRepository.findById(id).map(AccountUtil::entityToDto);
 	}
 
-	/*public Mono<AccountDto> getBalance(String cardNumber){
-		CardWebClient cardWebClient= new CardWebClient();
-		var val=cardWebClient.findByNumber(cardNumber)
-				.map(e->{
-					var getAccounts=Flux.fromIterable(e.getConnectTo()).log();
-					var account= getAccounts.flatMap(i -> Flux.from(accountRepository.findById(i)));
 
-					return account.take(1).next().map(p-> p);
-
-				});
-
-
-	}*/
-
-	/*
-	public Flux<AccountDto> findAllAccountsByCustomerId(String customerId) {
-		logger.info("get accounts by  customer");
-		  return this.accountRepository.findAll()
-				  .filter(document->document.getCustomerId().equals(customerId)).map(AccountUtil::entityToDto);
-	}*/
 
 }
